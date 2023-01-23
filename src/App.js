@@ -19,11 +19,10 @@ export default function App(){
       <AuthContext.Provider value={{ token, setToken }}>
           <BrowserRouter>
             <Routes>
-
-             {/*<Route path="/" element={<LoginPage />} /> */} 
-              <Route path="/cadastro" element={<SignUpPage />} />
-              {/* <Route path="/home" element={<HomePage />} />
-              <Route path="/nova-entrada" element={<InputValuePage />} />
+                <Route path="/" element={<LoginPage />} /> 
+                <Route path="/cadastro" element={<SignUpPage />} />
+               <Route path="/home" element={<HomePage />} />
+              {/*<Route path="/nova-entrada" element={<InputValuePage />} />
               <Route path="/nova-saida" element={<OutputValuePage />} />*/}
             
             </Routes>

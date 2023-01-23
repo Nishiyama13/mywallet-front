@@ -1,5 +1,7 @@
 export default function OutputValuePage() {
-    return(<>
-    <h1>OutputValuePage</h1>
-    </>)
+    return(
+    <>
+        <h1>OutputValuePage</h1>
+    </>
+    )
 }
