@@ -1,6 +1,5 @@
-import { Component } from "react";
 import styled from "styled-components";
-import { mainColor, buttonColor } from "../../constants/colors";
+import { mainColor, buttonColor, commentColor } from "../../constants/colors";
 
 export const ContainerHome = styled.div`
   width: 100%;
@@ -10,6 +9,7 @@ export const ContainerHome = styled.div`
   align-items: center;
   justify-content: center;
   padding-top: 25px;
+  
 
 `;
 
@@ -49,6 +49,13 @@ export const ContainerWallet = styled.div`
   border-radius: 5px;
 
   background-color: ${mainColor};
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h2{
+    color: ${commentColor};
+  }
 
 `;
 export const Footer = styled.div`

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ContainerSignUp, Button } from "./styled";
 import axios from "axios";
 import logo from "../../assets/logo.png";
-import BASE_URL from "../../constants/urls.js"
+import { BASE_URL } from "../../constants/urls";
 
 /*const exBody = {
     name: "Goku",
@@ -13,7 +13,7 @@ import BASE_URL from "../../constants/urls.js"
 
 }
 */
-// BASE_URL = http://localhost:3000
+// BASE_URL = http://localhost:5000
 //
 export default function SingUpPage() {
     
@@ -26,14 +26,16 @@ export default function SingUpPage() {
 
   function createAccount(e) {
     e.preventDefault();
-    const URL =
-      "http://localhost:5000/cadastro";
+    const url = `${BASE_URL}/cadastro`;
     const body = { name, email, password, confirmPassword };
+    console.log(body)
 
-    const promise = axios.post(URL, body);
+    const promise = axios.post(url, body);
     promise.then(res => {
+      console.log(res)
       alert("Cadastro Realizado");
-      navigate("/");
+      
+      navigate("/")
     });
     promise.catch(err => console.log(err.response.data));
   }
