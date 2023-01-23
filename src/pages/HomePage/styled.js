@@ -51,8 +51,10 @@ export const ContainerWallet = styled.div`
   background-color: ${mainColor};
 
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+
+
   h2{
     color: ${commentColor};
   }

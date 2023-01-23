@@ -22,7 +22,7 @@ export default function HomePage() {
     const { token, setToken } = useContext(AuthContext);
     const [walletBalanceList, setWalletBalanceList] = useState([]);
     const url = `${BASE_URL}/home`;
-    const [userName, setUserName] = useState("");
+//    const [userName, setUserName] = useState("");
 
     const config = {
         headers: {
@@ -35,19 +35,19 @@ export default function HomePage() {
         if (tokenDes) {
           setToken(tokenDes);
         }
-
+/* 
         const promise = axios.get(url,config);
         promise.then(res =>{
             setUserName(res.data.name);
-        })
+        }) 
         promise.catch(error => console.log(error.response.data));
-
-        const promise2 = axios.get(url, config);
-        promise2.then(res => {
-        setWalletBalanceList = res.data;
+*/
+        const promise = axios.get(url, config);
+        promise.then(res => {
+        setWalletBalanceList(res.data);
         console.log(res.data);
         });
-        promise2.catch(err => console.log(err.response.data));
+        promise.catch(err => console.log(err.response.data));
 
       }, []);
 
@@ -69,7 +69,7 @@ export default function HomePage() {
     return(
         <ContainerHome>
         <Header>
-            <h1>Olá, {userName}</h1>
+            <h1>Olá, userName</h1>
             <img src={logoutIcon} alt="icone de logout" onClick={handleLogout}/>
         </Header>
         <ContainerWallet>
@@ -103,7 +103,7 @@ export default function HomePage() {
             </Icon>
             <div>
                 <p>Nova</p> 
-                <p>entrada</p>
+                <p>saida</p>
             </div>
             
           </NewOutputValouButton>
