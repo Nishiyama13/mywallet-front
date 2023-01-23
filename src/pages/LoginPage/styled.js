@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { buttonColor } from "../../constants/colors";
+import { buttonColor, mainColor } from "../../constants/colors";
 
 export const LoginContainer = styled.div`
   display: flex;
@@ -22,15 +22,30 @@ export const FormContainer = styled.div`
     width: 100%;
     border-radius: 5px;
     border-style: none;
-    font-size: 18px;
+
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 23px;
+    letter-spacing: 0em;
+
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 14 24px;
-    color: #ffff;
+    color: ${mainColor};
     background: ${buttonColor};
     margin-top: 14px;
     margin-bottom: 24px;
   }
+  a {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 18px;
+    letter-spacing: 0em;
+    text-align: left;
+
+    color: ${mainColor};
+  }
 `;
+

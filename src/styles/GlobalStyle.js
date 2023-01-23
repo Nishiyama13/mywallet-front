@@ -70,6 +70,9 @@ table {
 		font-style: italic;
     } */
 }
+a{
+	text-decoration: none;
+}
 `;
 
 export default GlobalStyle;

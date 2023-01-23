@@ -74,7 +74,7 @@ export default function SingUpPage() {
 
         <Button type="submit">Cadastrar</Button>
       </form>
-      <Link to="/">Já possui uma conta? Faça login</Link>
+      <Link to="/">Já tem uma conta? Entre agora!</Link>
     </ContainerSignUp>
   );
 }

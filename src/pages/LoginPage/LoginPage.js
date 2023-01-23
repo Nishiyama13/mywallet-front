@@ -58,7 +58,7 @@ export default function LoginPage() {
 
           <button type="submit">Entrar</button>
         </form>
-        <Link to="/sign-up">Não possui uma conta? Cadastre-se</Link>
+        <Link to="/cadastro">Primeira vez? Cadastre-se</Link>
       </FormContainer>
     </LoginContainer>
   );
