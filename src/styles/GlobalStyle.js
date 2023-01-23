@@ -66,9 +66,9 @@ table {
 	text-align: left;
 	display: flex;
 	align-items: center;
-	&::placeholder{
+	/* &::placeholder{
 		font-style: italic;
-    }
+    } */
 }
 `;
 

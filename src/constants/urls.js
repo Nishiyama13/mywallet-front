@@ -1,1 +1,1 @@
-export const BASE_URL = mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.6.2
+export const BASE_URL = "http://localhost:3000"
