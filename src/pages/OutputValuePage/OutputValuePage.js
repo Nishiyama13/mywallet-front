@@ -31,7 +31,7 @@ export default function OutputValuePage() {
           
           setToken(res.data.token);
 
-          alert ("Novo fluxo positivo cadastrado")
+          alert ("Novo fluxo positivo negativo")
           navigate("/home");
           
         });
