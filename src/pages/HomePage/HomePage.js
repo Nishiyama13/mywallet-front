@@ -11,7 +11,8 @@ import {
   Footer,
   NewOutputValouButton,
   NewInputValouButton,
-  Icon
+  Icon,
+  NoTransactions
 } from "./styled";
 import axios from "axios";
 
@@ -74,10 +75,10 @@ export default function HomePage() {
         </Header>
         <ContainerWallet>
             {walletBalanceList.length === 0 ? (
-                <div>
+                <NoTransactions>
                     <h2>Não há registros de</h2>
                     <h2>entrada ou saída</h2>
-                </div>
+                </NoTransactions>
             ) : (
                 walletBalanceList.map((b) => (
                     <WalletTransactions
