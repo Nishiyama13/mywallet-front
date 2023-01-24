@@ -6,11 +6,21 @@ import axios from "axios";
 import { FormContainer } from "../LoginPage/styled";
 import { ContainerNewValue } from "./styled";
 
+
 export default function InputValuePage() {
     const navigate = useNavigate();
     const { token, setToken } = useContext(AuthContext);
     const [value, setValue] = useState("");
     const [description, setDescription] = useState("");
+    const url = `${BASE_URL}/nova-entrada`;
+    const body = {value, description};
+    console.log(body); 
+
+    const config = {
+        headers: {
+        Authorization: `Bearer ${token}`,
+        },
+    };
 
     useEffect(() => {
         const tokenDes = JSON.parse(localStorage.getItem("token"));
@@ -21,15 +31,10 @@ export default function InputValuePage() {
     
       function newInputValue(e){
         e.preventDefault();
-        const URL = `${BASE_URL}/nova-entrada`;
-        const body = {value, description};
-        console.log(body); 
         
-        const promise = axios.post(URL, body);      
+        const promise = axios.post(url, body, config);      
         promise.then(res => {
           console.log(res); //resposta
-          
-          setToken(res.data.token);
 
           alert ("Novo fluxo positivo cadastrado")
           navigate("/home");
@@ -38,6 +43,7 @@ export default function InputValuePage() {
         promise.catch(err => alert(err.response.data.message));
 
       }
+
       
     return(
         <ContainerNewValue>

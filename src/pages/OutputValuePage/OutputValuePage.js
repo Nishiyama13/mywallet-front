@@ -11,7 +11,16 @@ export default function OutputValuePage() {
     const { token, setToken } = useContext(AuthContext);
     const [value, setValue] = useState("");
     const [description, setDescription] = useState("");
+    const url = `${BASE_URL}/nova-saida`;
+    const body = {value, description};
+    console.log(body); 
 
+    const config = {
+        headers: {
+        Authorization: `Bearer ${token}`,
+        },
+    };
+    
     useEffect(() => {
         const tokenDes = JSON.parse(localStorage.getItem("token"));
         if (tokenDes) {
@@ -21,17 +30,13 @@ export default function OutputValuePage() {
     
       function newInputValue(e){
         e.preventDefault();
-        const URL = `${BASE_URL}/nova-saida`;
-        const body = {value, description};
-        console.log(body); 
+
         
-        const promise = axios.post(URL, body);      
+        const promise = axios.post(url, body, config);      
         promise.then(res => {
           console.log(res); //resposta
-          
-          setToken(res.data.token);
 
-          alert ("Novo fluxo positivo negativo")
+          alert ("Novo fluxo negativo cadastrado")
           navigate("/home");
           
         });
@@ -41,7 +46,7 @@ export default function OutputValuePage() {
       
     return(
         <ContainerNewValue>
-            <h1>Nova saida</h1>
+            <h1>Nova saída</h1>
             <FormContainer>
                 <form onSubmit={newInputValue}>
                     <input
@@ -60,7 +65,7 @@ export default function OutputValuePage() {
                         required
                     />
 
-                    <button type="submit">Salvar entrada</button>
+                    <button type="submit">Salvar saída</button>
                 </form>
             </FormContainer>
         </ContainerNewValue>
