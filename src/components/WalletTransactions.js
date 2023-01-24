@@ -29,6 +29,7 @@ margin-right: 5%;
 const Description = styled.span`
 color:${txtColor};
 width: 50%;
+word-wrap: break-word;
 margin-right: 5%;
 `
 const Value = styled.span`
