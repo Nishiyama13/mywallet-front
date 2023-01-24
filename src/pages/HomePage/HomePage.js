@@ -42,7 +42,7 @@ export default function HomePage() {
             const promise = axios.get(url, config);
             promise.then(res => {
             setWalletBalanceList(res.data);
-            //console.log(res.data);
+            console.log(res.data);
      
             });
 
@@ -110,7 +110,7 @@ export default function HomePage() {
                 ) : (
                     walletBalanceList.map((b) => (
                         <WalletTransactions
-                        key={b.id} type={b.type} value={b.value} description = {b.description} data={b.data}
+                        key={b._idUser} type={b.type} value={b.value} description = {b.description} data={b.data}
                         />
                     ))
                 )}
@@ -137,7 +137,7 @@ export default function HomePage() {
                 </Icon>
                 <div>
                     <p>Nova</p> 
-                    <p>saida</p>
+                    <p>saída</p>
                 </div>
                 
             </NewOutputValouButton>
