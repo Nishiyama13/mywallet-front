@@ -7,8 +7,7 @@ export const ContainerNewValue = styled.div `
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 45px;
-
+  padding-top: 25px;
 
   h1 {
     color: ${mainColor};
