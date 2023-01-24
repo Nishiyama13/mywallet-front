@@ -18,7 +18,7 @@ export const ContainerBalances = styled.div`
 font-size: 17px;
 height: 30px;
 margin-bottom: -10px;
-width: 80%;
+width: 84%;
 padding-left: 15px;
 display: flex;
 justify-content: space-between;
@@ -27,7 +27,6 @@ bottom: 153px;
 
 background-color: ${mainColor};
 border-radius: 5px;
-
 `
 const Message = styled.span`
 font-weight: 700;

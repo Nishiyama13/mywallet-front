@@ -63,8 +63,8 @@ export default function HomePage() {
                 <div><h1 color="blue">Carregando...</h1></div>
             )
         }
-
-            
+         
+         
         let newBalance = walletBalanceList.reduce((acc, curr) => {
     
             if(curr.type === 'input'){
@@ -75,8 +75,7 @@ export default function HomePage() {
         },0);
         newBalance =(Math.round(newBalance * 100)/ 100).toFixed(2);
 
-/*         const reverseWalletBalanceList = walletBalanceList.reverse();
-        console.log(reverseWalletBalanceList);  */
+ 
         
         function newInputValou(){
             navigate("/nova-entrada");
@@ -92,9 +91,10 @@ export default function HomePage() {
             navigate("/");
         }
 
-
-    
-
+ 
+         const reverseWalletBalanceList = [...walletBalanceList].reverse();
+        console.log(reverseWalletBalanceList);     
+        
         return(
             <ContainerHome>
             <Header>
@@ -108,7 +108,7 @@ export default function HomePage() {
                         <h2>entrada ou saída</h2>
                     </NoTransactions>
                 ) : (
-                    walletBalanceList.map((b) => (
+                    reverseWalletBalanceList.map((b) => (
                         <WalletTransactions
                         key={b._idUser} type={b.type} value={b.value} description = {b.description} data={b.data}
                         />
