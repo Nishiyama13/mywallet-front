@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import{ txtColor,negativeColor,positiveColor } from "../constants/colors"
+import{ txtColor,negativeColor,positiveColor, mainColor } from "../constants/colors"
 
 export default function BalanceDisplay(props){
     const {balanceValue} = props;
@@ -16,12 +16,16 @@ export default function BalanceDisplay(props){
 
 export const ContainerBalances = styled.div`
 font-size: 17px;
+height: 30px;
+margin-bottom: -10px;
 width: 80%;
 padding-left: 15px;
 display: flex;
 justify-content: space-between;
 position: fixed;
 bottom: 153px;
+
+background-color: ${mainColor};
 `
 const Message = styled.span`
 font-weight: 700;

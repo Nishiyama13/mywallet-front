@@ -41,6 +41,7 @@ export const Header = styled.div`
 export const ContainerWallet = styled.div`
   width: 90%;
   position: fixed;
+  overflow: auto;
   top: 78px;
   bottom:143px ;
   z-index: 1;
