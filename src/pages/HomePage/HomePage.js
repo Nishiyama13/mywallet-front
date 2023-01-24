@@ -17,7 +17,6 @@ import {
 } from "./styled";
 import axios from "axios";
 
-
 export default function HomePage() {
         const navigate = useNavigate();
         const { token, setToken } = useContext(AuthContext);
@@ -25,13 +24,14 @@ export default function HomePage() {
         const [walletBalanceList, setWalletBalanceList] = useState(undefined);
         const url = `${BASE_URL}/home`;
 
+        const [balanceUser, setBalanceUser] = useState(undefined);
+
+
         const config = {
             headers: {
             Authorization: `Bearer ${token}`,
             },
         };
-
-
 
         useEffect(() => {
             const tokenDes = JSON.parse(localStorage.getItem("token"));
@@ -44,7 +44,9 @@ export default function HomePage() {
             promise.then(res => {
             setWalletBalanceList(res.data);
             console.log(res.data);
+            balance();
             });
+
             promise.catch(err => console.log(err.response.data));
 
         }, []);
@@ -56,11 +58,29 @@ export default function HomePage() {
             }
         },[])  
 
+    
         if(walletBalanceList === undefined){
             return(
                 <div><h1 color="blue">Carregando...</h1></div>
             )
         }
+
+        function balance(){
+            
+            let newBalance = walletBalanceList.reduce((acc, curr) => {
+    
+            if(curr.type === 'input'){
+                return acc + parseFloat(curr.value);
+            } else {
+                return acc - parseFloat(curr.value);
+            }
+        },0);
+        newBalance =(Math.round(newBalance * 100)/ 100).toFixed(2);
+
+        setBalanceUser(newBalance);
+
+        }
+
 
 
         function newInputValou(){
@@ -97,6 +117,7 @@ export default function HomePage() {
                         />
                     ))
                 )}
+                <div>Saldo: {balanceUser}</div>
             </ContainerWallet>
             <Footer>
             <NewInputValouButton onClick={newInputValou}> 

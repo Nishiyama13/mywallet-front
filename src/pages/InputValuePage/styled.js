@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { mainColor, buttonColor, txtColor } from "../../constants/colors"
+import { mainColor, buttonColor } from "../../constants/colors"
 
 export const ContainerNewValue = styled.div `
   width: 100%;
@@ -8,7 +8,7 @@ export const ContainerNewValue = styled.div `
   align-items: center;
   justify-content: center;
   padding-top: 45px;
- 
+
 
   h1 {
     color: ${mainColor};

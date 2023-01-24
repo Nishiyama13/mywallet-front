@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FormContainer } from "../LoginPage/styled";
 import { ContainerNewValue } from "./styled";
-import { parseFloat } from 'lodash';
 
 export default function OutputValuePage() {
     const navigate = useNavigate();
@@ -36,8 +35,6 @@ export default function OutputValuePage() {
             checkvalue = checkvalue+".00";
         }
 
-   //     let formatValue = parseFloat(value);
-    
         const body = {value:checkvalue, description};
         console.log(body); 
         
@@ -51,7 +48,7 @@ export default function OutputValuePage() {
         });
         promise.catch(err => alert(err.response.data.message));
 
-      }
+    }
       
     return(
         <ContainerNewValue>

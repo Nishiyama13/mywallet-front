@@ -6,7 +6,6 @@ import axios from "axios";
 import { FormContainer } from "../LoginPage/styled";
 import { ContainerNewValue } from "./styled";
 
-
 export default function InputValuePage() {
     const navigate = useNavigate();
     const { token, setToken } = useContext(AuthContext);
@@ -46,7 +45,7 @@ export default function InputValuePage() {
         });
         promise.catch(err => alert(err.response.data.message));
 
-      }
+    }
 
       
     return(
@@ -59,6 +58,7 @@ export default function InputValuePage() {
                         placeholder="Valor"
                         value={value}
                         onChange={e => setValue(e.target.value)}
+                        pattern="\d+(\.|\,)\d{2}"
                         required
                     />
  

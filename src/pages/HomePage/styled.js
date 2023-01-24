@@ -10,7 +10,6 @@ export const ContainerHome = styled.div`
   justify-content: center;
   padding-top: 25px;
   
-
 `;
 
 export const Header = styled.div`
