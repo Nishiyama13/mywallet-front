@@ -111,7 +111,11 @@ export default function HomePage() {
                         />
                     ))
                 )}
-                <BalanceDisplay balanceValue={newBalance} />
+            {walletBalanceList.length !== 0 ? (
+            <BalanceDisplay balanceValue={newBalance} />
+            ) : (
+            <div>sem saldo</div>
+            )}
             </ContainerWallet>
             <Footer>
             <NewInputValouButton onClick={newInputValou}> 
