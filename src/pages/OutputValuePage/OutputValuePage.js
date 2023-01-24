@@ -42,7 +42,7 @@ export default function OutputValuePage() {
         promise.then(res => {
           console.log(res); //resposta
 
-          alert ("Novo fluxo negativo cadastrado")
+          //alert ("Novo fluxo negativo cadastrado")
           navigate("/home");
           
         });

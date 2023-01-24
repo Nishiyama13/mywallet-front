@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mainColor, buttonColor, commentColor,txtColor } from "../../constants/colors";
+import { mainColor, buttonColor, commentColor } from "../../constants/colors";
 
 export const ContainerHome = styled.div`
   width: 100%;
@@ -52,6 +52,7 @@ export const ContainerWallet = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  padding-bottom: 50px;
 
   h2{
     color: ${commentColor};

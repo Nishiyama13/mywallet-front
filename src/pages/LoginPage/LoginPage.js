@@ -30,7 +30,7 @@ export default function LoginPage() {
  
       setToken(res.data.token);
       setUser(res.data.name);
-      alert("usuario conectado!");
+      //alert("usuario conectado!");
 
       navigate("/home");
     });

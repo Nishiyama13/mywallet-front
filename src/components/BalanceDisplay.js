@@ -26,6 +26,8 @@ position: fixed;
 bottom: 153px;
 
 background-color: ${mainColor};
+border-radius: 5px;
+
 `
 const Message = styled.span`
 font-weight: 700;

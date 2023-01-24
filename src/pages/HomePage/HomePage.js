@@ -25,8 +25,6 @@ export default function HomePage() {
         const [walletBalanceList, setWalletBalanceList] = useState(undefined);
         const url = `${BASE_URL}/home`;
 
-        const [balanceUser, setBalanceUser] = useState(undefined);
-
 
         const config = {
             headers: {
@@ -44,7 +42,7 @@ export default function HomePage() {
             const promise = axios.get(url, config);
             promise.then(res => {
             setWalletBalanceList(res.data);
-            console.log(res.data);
+            //console.log(res.data);
      
             });
 
@@ -77,6 +75,9 @@ export default function HomePage() {
         },0);
         newBalance =(Math.round(newBalance * 100)/ 100).toFixed(2);
 
+/*         const reverseWalletBalanceList = walletBalanceList.reverse();
+        console.log(reverseWalletBalanceList);  */
+        
         function newInputValou(){
             navigate("/nova-entrada");
         }
@@ -90,6 +91,8 @@ export default function HomePage() {
             setToken("");
             navigate("/");
         }
+
+
     
 
         return(

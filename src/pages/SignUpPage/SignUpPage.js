@@ -32,7 +32,7 @@ export default function SingUpPage() {
     const promise = axios.post(url, body);
     promise.then(res => {
       console.log(res)
-      alert("Cadastro Realizado");
+     // alert("Cadastro Realizado");
       
       navigate("/")
     });

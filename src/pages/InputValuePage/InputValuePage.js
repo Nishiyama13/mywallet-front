@@ -1,4 +1,5 @@
 import AuthContext from "../../context/AuthContext";
+import UserContext from "../../context/UserContext";
 import { BASE_URL } from "../../constants/urls";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +10,7 @@ import { ContainerNewValue } from "./styled";
 export default function InputValuePage() {
     const navigate = useNavigate();
     const { token, setToken } = useContext(AuthContext);
+    const {setUser} = useContext(UserContext);
     const [value, setValue] = useState("");
     const [description, setDescription] = useState("");
     const url = `${BASE_URL}/nova-entrada`;
@@ -37,15 +39,22 @@ export default function InputValuePage() {
         
         const promise = axios.post(url, body, config);      
         promise.then(res => {
-          console.log(res); //resposta
+        //console.log(res); //resposta
 
-          alert ("Novo fluxo positivo cadastrado")
+          //alert ("Novo fluxo positivo cadastrado")
           navigate("/home");
           
         });
         promise.catch(err => alert(err.response.data.message));
 
     }
+
+    useEffect(() => {
+        const userDes = JSON.parse(localStorage.getItem("user"));
+        if (userDes) {
+            setUser(userDes);
+        }
+    },[])  
 
       
     return(
