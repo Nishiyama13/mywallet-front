@@ -44,7 +44,7 @@ export default function HomePage() {
             promise.then(res => {
             setWalletBalanceList(res.data);
             console.log(res.data);
-            balance();
+     
             });
 
             promise.catch(err => console.log(err.response.data));
@@ -65,7 +65,7 @@ export default function HomePage() {
             )
         }
 
-        function balance(){
+
             
             let newBalance = walletBalanceList.reduce((acc, curr) => {
     
@@ -77,9 +77,7 @@ export default function HomePage() {
         },0);
         newBalance =(Math.round(newBalance * 100)/ 100).toFixed(2);
 
-        setBalanceUser(newBalance);
-
-        }
+  
 
 
 
@@ -117,7 +115,7 @@ export default function HomePage() {
                         />
                     ))
                 )}
-                <div>Saldo: {balanceUser}</div>
+                <div>Saldo: {newBalance}</div>
             </ContainerWallet>
             <Footer>
             <NewInputValouButton onClick={newInputValou}> 
