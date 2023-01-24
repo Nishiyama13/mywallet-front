@@ -7,10 +7,9 @@ import { BASE_URL } from "../../constants/urls";
 
 /*const exBody = {
     name: "Goku",
-	email: "goku@email.com",
-	password: "goku123",
+	  email: "goku@email.com",
+	  password: "goku123",
     confirmPassword: "goku123"
-
 }
 */
 // BASE_URL = http://localhost:5000

@@ -1,4 +1,5 @@
 import AuthContext from "../../context/AuthContext";
+import UserContext from "../../context/UserContext";
 
 import { Link, useNavigate } from "react-router-dom";
 import { LoginContainer, FormContainer } from "./styled";
@@ -7,6 +8,7 @@ import { BASE_URL } from "../../constants/urls";
 import axios from "axios";
 import logo from "../../assets/logo.png";
 
+
 export default function LoginPage() {
   const navigate = useNavigate();
 
@@ -14,6 +16,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
 
   const { setToken } = useContext(AuthContext);
+  const { setUser } = useContext(UserContext);
  
   function login(e) {
     e.preventDefault();
@@ -25,7 +28,8 @@ export default function LoginPage() {
     promise.then(res => {
       console.log(res); //resposta
  
-      setToken(res.data);
+      setToken(res.data.token);
+      setUser(res.data.name);
       alert("usuario conectado!");
 
       navigate("/home");
