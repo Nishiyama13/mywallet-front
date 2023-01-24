@@ -1,4 +1,5 @@
 import AuthContext from "../../context/AuthContext";
+import UserContext from "../../context/UserContext";
 import { BASE_URL } from "../../constants/urls";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +10,7 @@ import { ContainerNewValue } from "./styled";
 export default function OutputValuePage() {
     const navigate = useNavigate();
     const { token, setToken } = useContext(AuthContext);
+    const { setUser } = useContext(UserContext);
     const [value, setValue] = useState("");
     const [description, setDescription] = useState("");
     const url = `${BASE_URL}/nova-saida`;
@@ -26,6 +28,13 @@ export default function OutputValuePage() {
           setToken(tokenDes);
         }
       }, []);
+
+      useEffect(() => {
+        const userDes = JSON.parse(localStorage.getItem("user"));
+        if (userDes) {
+            setUser(userDes);
+        }
+    },[])  
     
       function newInputValue(e){
         e.preventDefault();
