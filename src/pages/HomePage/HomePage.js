@@ -1,5 +1,6 @@
 import logoutIcon from "../../assets/logoutIcon.png";
 import AuthContext from "../../context/AuthContext";
+import UserContext from "../../context/UserContext";
 import { BASE_URL } from "../../constants/urls";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -17,14 +18,12 @@ import {
 import axios from "axios";
 
 
-
 export default function HomePage() {
         const navigate = useNavigate();
         const { token, setToken } = useContext(AuthContext);
-        const { user, setUser } = useContext(AuthContext);
-        const [walletBalanceList, setWalletBalanceList] = useState([]);
+        const { user, setUser } = useContext(UserContext);
+        const [walletBalanceList, setWalletBalanceList] = useState(undefined);
         const url = `${BASE_URL}/home`;
-        const [userName, setUserName] = useState("");
 
         const config = {
             headers: {
@@ -32,12 +31,7 @@ export default function HomePage() {
             },
         };
 
-/*         useEffect(() => {
-        const userDes = JSON.parse(localStorage.getItem("user"));
-        if (userDes) {
-          setUser(userDes);
-        }
-        },[])  */
+
 
         useEffect(() => {
             const tokenDes = JSON.parse(localStorage.getItem("token"));
@@ -55,7 +49,18 @@ export default function HomePage() {
 
         }, []);
 
+        useEffect(() => {
+            const userDes = JSON.parse(localStorage.getItem("user"));
+            if (userDes) {
+                setUser(userDes);
+            }
+        },[])  
 
+        if(walletBalanceList === undefined){
+            return(
+                <div><h1 color="blue">Carregando...</h1></div>
+            )
+        }
 
 
         function newInputValou(){
