@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mainColor, buttonColor, commentColor } from "../../constants/colors";
+import { mainColor, buttonColor, commentColor,txtColor } from "../../constants/colors";
 
 export const ContainerHome = styled.div`
   width: 100%;
@@ -27,7 +27,6 @@ export const Header = styled.div`
     position: fixed;  
     left: 24px;
     z-index: 1;
-
   }
 
   img{  
@@ -53,12 +52,12 @@ export const ContainerWallet = styled.div`
   flex-direction: column;
   align-items: flex-start;
 
-
   h2{
     color: ${commentColor};
   }
 
 `;
+
 export const Footer = styled.div`
   width: 100%;
   color: ${mainColor};
@@ -82,7 +81,6 @@ export const Footer = styled.div`
     line-height: 20px;
     letter-spacing: 0em;
     text-align: left;
-
   }
 `;
 
@@ -109,3 +107,5 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 `
+
+

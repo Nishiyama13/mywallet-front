@@ -5,6 +5,7 @@ import { BASE_URL } from "../../constants/urls";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import WalletTransactions from "../../components/WalletTransactions";
+import BalanceDisplay from "../../components/BalanceDisplay" ;
 import {
   ContainerHome,
   Header,
@@ -13,7 +14,7 @@ import {
   NewOutputValouButton,
   NewInputValouButton,
   Icon,
-  NoTransactions
+  NoTransactions,
 } from "./styled";
 import axios from "axios";
 
@@ -65,9 +66,8 @@ export default function HomePage() {
             )
         }
 
-
             
-            let newBalance = walletBalanceList.reduce((acc, curr) => {
+        let newBalance = walletBalanceList.reduce((acc, curr) => {
     
             if(curr.type === 'input'){
                 return acc + parseFloat(curr.value);
@@ -76,10 +76,6 @@ export default function HomePage() {
             }
         },0);
         newBalance =(Math.round(newBalance * 100)/ 100).toFixed(2);
-
-  
-
-
 
         function newInputValou(){
             navigate("/nova-entrada");
@@ -115,7 +111,7 @@ export default function HomePage() {
                         />
                     ))
                 )}
-                <div>Saldo: {newBalance}</div>
+                <BalanceDisplay balanceValue={newBalance} />
             </ContainerWallet>
             <Footer>
             <NewInputValouButton onClick={newInputValou}> 
@@ -142,3 +138,5 @@ export default function HomePage() {
         </ContainerHome>
         )
 }
+
+
