@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FormContainer } from "../LoginPage/styled";
 import { ContainerNewValue } from "./styled";
+import { parseFloat } from 'lodash';
 
 export default function OutputValuePage() {
     const navigate = useNavigate();
@@ -12,8 +13,7 @@ export default function OutputValuePage() {
     const [value, setValue] = useState("");
     const [description, setDescription] = useState("");
     const url = `${BASE_URL}/nova-saida`;
-    const body = {value, description};
-    console.log(body); 
+
 
     const config = {
         headers: {
@@ -30,7 +30,16 @@ export default function OutputValuePage() {
     
       function newInputValue(e){
         e.preventDefault();
+        let checkvalue = value;
 
+        if( !value.includes(".") && !value.includes(",") ){
+            checkvalue = checkvalue+".00";
+        }
+
+   //     let formatValue = parseFloat(value);
+    
+        const body = {value:checkvalue, description};
+        console.log(body); 
         
         const promise = axios.post(url, body, config);      
         promise.then(res => {
@@ -54,6 +63,7 @@ export default function OutputValuePage() {
                         placeholder="Valor"
                         value={value}
                         onChange={e => setValue(e.target.value)}
+                        pattern="\d+(\.|\,)\d{2}"
                         required
                     />
  

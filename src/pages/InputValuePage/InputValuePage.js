@@ -13,8 +13,6 @@ export default function InputValuePage() {
     const [value, setValue] = useState("");
     const [description, setDescription] = useState("");
     const url = `${BASE_URL}/nova-entrada`;
-    const body = {value, description};
-    console.log(body); 
 
     const config = {
         headers: {
@@ -31,6 +29,12 @@ export default function InputValuePage() {
     
       function newInputValue(e){
         e.preventDefault();
+        let checkvalue = value;
+
+        if( !value.includes(".") && !value.includes(",") ){
+            checkvalue = checkvalue+".00";
+        }
+        const body = {value:checkvalue, description};
         
         const promise = axios.post(url, body, config);      
         promise.then(res => {
